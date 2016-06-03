@@ -3,7 +3,7 @@ Name: vzdummy-systemd-el7
 Group: Applications/System
 License: GPL
 Version: 1.0
-Release: 1
+Release: 2
 Autoreq: 0
 BuildArch: noarch
 
@@ -81,6 +81,12 @@ for file in "/bin/ping" "/bin/ping6"; do
 done
 :
 
+%triggerin -- mariadb-server
+# PSBM-47587
+# create /var/run/mariadb
+%{_bindir}/systemd-tmpfiles --create > /dev/null 2>&1
+:
+
 %files
 %attr(0644, root, root) /usr/lib/systemd/system/vzfifo.service
 %attr(0644, root, root) /usr/lib/systemd/system/vzreboot.service
@@ -90,5 +96,8 @@ done
 /lib/systemd/system/reboot.target.wants/vzreboot.service
 
 %changelog
+* Fri Jun 03 2016 Alexander Stefanov <astefanov@virtuozzo.com>
+- Create mariadb runtime directory on mariadb server installation, see #PSBM-47587
+
 * Wed Oct 05 2011 Konstantin Volckov <wolf@sw.ru> 1.0-1
 - created
