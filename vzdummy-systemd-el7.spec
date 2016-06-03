@@ -3,7 +3,7 @@ Name: vzdummy-systemd-el7
 Group: Applications/System
 License: GPL
 Version: 1.0
-Release: 2
+Release: 3
 Autoreq: 0
 BuildArch: noarch
 
@@ -85,6 +85,11 @@ done
 # PSBM-47587
 # create /var/run/mariadb
 %{_bindir}/systemd-tmpfiles --create > /dev/null 2>&1
+:
+
+%triggerin -- postgresql-server
+mkdir -p /var/run/postgresql > /dev/null 2>&1
+chown postgres.postgres /var/run/postgresql > /dev/null 2>&1
 :
 
 %files
