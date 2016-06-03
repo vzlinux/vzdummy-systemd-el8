@@ -88,6 +88,7 @@ done
 :
 
 %triggerin -- postgresql-server
+# PSBM-41623
 mkdir -p /var/run/postgresql > /dev/null 2>&1
 chown postgres.postgres /var/run/postgresql > /dev/null 2>&1
 :
