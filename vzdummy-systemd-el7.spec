@@ -81,18 +81,6 @@ for file in "/bin/ping" "/bin/ping6"; do
 done
 :
 
-%triggerin -- mariadb-server
-# PSBM-47587
-# create /var/run/mariadb
-%{_bindir}/systemd-tmpfiles --create > /dev/null 2>&1
-:
-
-%triggerin -- postgresql-server
-# PSBM-41623
-mkdir -p /var/run/postgresql > /dev/null 2>&1
-chown postgres.postgres /var/run/postgresql > /dev/null 2>&1
-:
-
 %files
 %attr(0644, root, root) /usr/lib/systemd/system/vzfifo.service
 %attr(0644, root, root) /usr/lib/systemd/system/vzreboot.service
