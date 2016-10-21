@@ -3,7 +3,7 @@ Name: vzdummy-systemd-el7
 Group: Applications/System
 License: GPL
 Version: 1.0
-Release: 3
+Release: 4
 Autoreq: 0
 BuildArch: noarch
 
@@ -102,6 +102,9 @@ chown postgres.postgres /var/run/postgresql > /dev/null 2>&1
 /lib/systemd/system/reboot.target.wants/vzreboot.service
 
 %changelog
+* Fri Oct 21 Konstantin Volkov <wolf@virtuozzo.com> 1.0-4
+- Drop mariadb trigger: fixed in vzpkgenv, see #PSBM-50243
+
 * Fri Jun 03 2016 Alexander Stefanov <astefanov@virtuozzo.com>
 - Create mariadb runtime directory on mariadb server installation, see #PSBM-47587
 
