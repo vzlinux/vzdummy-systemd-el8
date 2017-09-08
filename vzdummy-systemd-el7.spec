@@ -3,7 +3,7 @@ Name: vzdummy-systemd-el7
 Group: Applications/System
 License: GPL
 Version: 1.0
-Release: 4
+Release: 4%{?dist}
 Autoreq: 0
 BuildArch: noarch
 
