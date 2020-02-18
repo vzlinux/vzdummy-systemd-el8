@@ -1,9 +1,9 @@
 Summary: Dummy package to fix systemd initscripts configs
-Name: vzdummy-systemd-el7
+Name: vzdummy-systemd-el8
 Group: Applications/System
 License: GPL
 Version: 1.0
-Release: 4%{?dist}
+Release: 1%{?dist}
 Autoreq: 0
 BuildArch: noarch
 
@@ -90,11 +90,6 @@ done
 /lib/systemd/system/reboot.target.wants/vzreboot.service
 
 %changelog
-* Fri Oct 21 2016 Konstantin Volkov <wolf@virtuozzo.com> 1.0-4
-- Drop mariadb trigger: fixed in vzpkgenv, see #PSBM-50243
+* Tue Feb 18 2020 Denis Silakov <dsilakov@virtuozzo.com> 1.0-1
+- Fork el7 to el8
 
-* Fri Jun 03 2016 Alexander Stefanov <astefanov@virtuozzo.com>
-- Create mariadb runtime directory on mariadb server installation, see #PSBM-47587
-
-* Wed Oct 05 2011 Konstantin Volckov <wolf@sw.ru> 1.0-1
-- created
